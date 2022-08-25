@@ -1,0 +1,78 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'in.bushansirgur'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+description = 'this project is built from the tutorial\n' +
+		      'https://www.udemy.com/course/build-production-ready-rest-api-with-spring-boot-expense-manager-api/learn/lecture/29050640#overview'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web:'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+defaultTasks 'hello'
+
+task hello {
+	group 'vogella'
+	description 'The hello task greets Gradle by saying "Hello Gradle"'
+
+	doFirst {
+		println 'Hello Gradle'
+	}
+	doLast {
+		println 'Bye bye Gradle'
+	}
+}
+
+
+task onlySpecifiesCodeForConfigurationPhase {
+	group 'vogella'
+	description 'Configuration phase task example.'
+
+	println 'I always get printed even though, I am not invoked'
+}
+
+task anotherUnrelatedTask {
+	doLast {
+		println 'I am in the doLast execution phase'
+	}
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'in.bushansirgur.expensetrackerapi.ExpensetrackerapiApplication'
+	}
+}
