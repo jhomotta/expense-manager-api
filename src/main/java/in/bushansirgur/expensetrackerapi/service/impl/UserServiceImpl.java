@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User read() throws ResourceNotFoundException {
-        Long id = getLoggedInUser().getId();
+        Integer id = getLoggedInUser().getId();
         return this.userRepository.findById(id).orElseThrow(()
                 -> new ResourceNotFoundException("User not found for the id: " + id));
     }

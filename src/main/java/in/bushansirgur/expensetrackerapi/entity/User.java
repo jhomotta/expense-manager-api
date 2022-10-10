@@ -16,12 +16,12 @@ import java.time.Instant;
 @NoArgsConstructor()
 @Entity
 @Table(name = "tbl_users")
-public class User implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class User  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Long id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;

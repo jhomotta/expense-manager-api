@@ -57,7 +57,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     public Expense findById(Integer id) {
-        Long a = this.userService.getLoggedInUser().getId();
+        Integer a = this.userService.getLoggedInUser().getId();
         Optional<Expense> expense = this.expenseRepository.findByUserIdAndId(this.userService.getLoggedInUser().getId(), id);
         if(expense.isPresent()) {
             return expense.get();

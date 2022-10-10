@@ -9,23 +9,23 @@ spring:
     name: expensetrackerapi
   datasource:
     # MYSQL
-    # url: jdbc:mysql://localhost:33060/expensetracker?reconnect=true
-    # username: root
-    # password: root
-    # driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:33060/expensetracker?reconnect=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
     # initialize: false
     # PostGresql
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    # url: ${JDBC_DATABASE_URL}
+    # username: ${JDBC_DATABASE_USERNAME}
+    # password: ${JDBC_DATABASE_PASSWORD}
+    # driver-class-name: org.postgresql.Driver
     initialize: false
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
-    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    database-platform: org.hibernate.dialect.PostgreSQL82Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #database-platform: org.hibernate.dialect.PostgreSQL82Dialect
 
 #  thymeleaf:
 #    cache: false
